@@ -3,7 +3,7 @@
 replicaCount: 2
 
 image:
-  repository: ghcr.io/YOUR_GITHUB_USER/myapp
+  repository: ghcr.io/yasirroony/myapp
   tag: ""                 # set per environment by the pipeline
   pullPolicy: IfNotPresent
 
