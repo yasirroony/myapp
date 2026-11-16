@@ -1,0 +1,33 @@
+# Defaults for every environment. Per-environment overrides live in the
+# platform-config repo under envs/<env>/myapp/values.yaml.
+replicaCount: 2
+
+image:
+  repository: ghcr.io/YOUR_GITHUB_USER/myapp
+  tag: ""                 # set per environment by the pipeline
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+service:
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: false
+  className: nginx
+  host: ""
+
+resources:
+  requests: { cpu: 100m, memory: 128Mi }
+  limits:   { cpu: 500m, memory: 256Mi }
+
+env:
+  GREETING: hello
+  LOG_LEVEL: info
+
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPU: 70
